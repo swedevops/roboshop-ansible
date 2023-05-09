@@ -49,6 +49,6 @@
 
 - name: downloaded app content
   ansible.builtin.unarchive:
-     src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip &>>$log_file
+     src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
      dest:  /usr/share/nginx/html
      remote_src: yes
