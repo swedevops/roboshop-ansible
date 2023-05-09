@@ -22,7 +22,7 @@
 -  name: Create app directory
    ansible.builtin.file:
     path: /usr/share/nginx/html
-    state: dirctory
+    state: directory
 
 - name: download App Content
   ansible.builtin.unarchive:
