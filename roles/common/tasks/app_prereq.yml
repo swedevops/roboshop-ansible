@@ -1,4 +1,4 @@
-- name: Create Application User
+- name: Create AppUser
   ansible.builtin.user:
     name: "{{app_user}}"
 
