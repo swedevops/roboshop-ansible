@@ -1,6 +1,6 @@
 - name: Install Maven
   ansible.builtin.yum:
-    name:maven
+    name: maven
 
 - name: Include app_prerequisites
   ansible.builtin.import_tasks:
