@@ -1,0 +1,14 @@
+#echo -e "\e[36m>>>>>>>>> Install Python <<<<<<<<\e[0m"
+#yum install python36 gcc python3-devel -y &>>$log_file
+#func_status_check $?
+#func_pre-requisites
+#echo -e "\e[36m>>>>>>>>> Install Dependencies <<<<<<<<\e[0m"
+#pip3.6 install -r requirements.txt &>>$log_file
+#func_status_check $?
+#echo -e "\e[36m>>>>>>>>>Setup SystemD Service <<<<<<<<\e[0m"
+#sed -i -r "s|rabbitmq_passwd|${rabbitmq_passwd}|" ${script_path}/payment.service &>>$log_file
+#func_status_check $?
+#func_systemd_setup
+
+- name: Install Python
+  ansible.builtin.yum:
