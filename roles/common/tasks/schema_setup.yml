@@ -24,5 +24,5 @@
     - name: load schema
       ansible.builtin.shell: mysql -h {{ lookup('aws_ssm', 'dev.shipping.db_host', region='us-east-1' ) }}
        -u{{ lookup('aws_ssm', 'dev.shipping.db_user', region='us-east-1' ) }}
-       {{ lookup('aws_ssm', 'dev.shipping.db_pass', region='us-east-1' ) }}
-        -p ${mysql_root_user} < /app/schema/{{component}}.sql
+       -p{{ lookup('aws_ssm', 'dev.shipping.db_pass', region='us-east-1' ) }}
+         {mysql_root_user} < /app/schema/{{component}}.sql
