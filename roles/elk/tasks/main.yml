@@ -3,8 +3,8 @@
     src: logstash.conf
     dest: /etc/logstash/conf.d/logstash.conf
 
-- name: restart ansible
+- name: restart logstash
   ansible.builtin.systemd:
     name: logstash
     state: restarted
-    enable: yes
+    enabled: yes
