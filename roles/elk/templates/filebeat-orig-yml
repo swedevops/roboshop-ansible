@@ -29,7 +29,7 @@ filebeat.inputs:
 
     # Paths that should be crawled and fetched. Glob based paths.
     paths:
-    #  - /var/log/*.log
+      - /var/log/*.log
       #- c:\programdata\elasticsearch\logs\*
 
     # Exclude lines. A list of regular expressions to match. It drops the lines that are
@@ -52,7 +52,7 @@ filebeat.inputs:
 
 # ============================== Filebeat modules ==============================
 
-#filebeat.config.modules:
+filebeat.config.modules:
   # Glob pattern for configuration loading
   path: ${path.config}/modules.d/*.yml
 
@@ -64,8 +64,8 @@ filebeat.inputs:
 
 # ======================= Elasticsearch template setting =======================
 
-#setup.template.settings:
-#  index.number_of_shards: 1
+setup.template.settings:
+  index.number_of_shards: 1
   #index.codec: best_compression
   #_source.enabled: false
 
@@ -101,7 +101,7 @@ filebeat.inputs:
 
 # Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
 # This requires a Kibana endpoint configuration.
-#setup.kibana:
+setup.kibana:
 
 # Kibana Host
 # Scheme and port can be left out and will be set to the default (http and 5601)
@@ -132,9 +132,9 @@ filebeat.inputs:
 # Configure what output to use when sending the data collected by the beat.
 
 # ---------------------------- Elasticsearch Output ----------------------------
-#output.elasticsearch:
+output.elasticsearch:
   # Array of hosts to connect to.
- # hosts: ["localhost:9200"]
+  hosts: ["localhost:9200"]
 
   # Protocol - either `http` (default) or `https`.
   #protocol: "https"
@@ -160,12 +160,12 @@ filebeat.inputs:
   #ssl.key: "/etc/pki/client/cert.key"
 
 # ================================= Processors =================================
-#processors:
-#  - add_host_metadata:
- #     when.not.contains.tags: forwarded
- # - add_cloud_metadata: ~
- # - add_docker_metadata: ~
- # - add_kubernetes_metadata: ~
+processors:
+  - add_host_metadata:
+      when.not.contains.tags: forwarded
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+  - add_kubernetes_metadata: ~
 
     # ================================== Logging ===================================
 
