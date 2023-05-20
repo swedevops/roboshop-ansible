@@ -5,7 +5,7 @@
     paths:
       - {{ log_file }}
     fields:
-      componenet: {{ component }}
+      component: { { component } }
 
   output.logstash:
     hosts: ["172.31.75.38:5044"]
