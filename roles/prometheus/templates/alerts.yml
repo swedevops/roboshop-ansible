@@ -1,0 +1,10 @@
+groups:
+  - name: ec2-nodes
+    rules:
+      - alert: HighCPUUtilization
+        expr: job:request_latency_seconds:mean5m{job="myjob"} > 0.5100 - (avg by (component,env,instance,job,name)(rate(node_cpu_seconds_total{mode="idle"} [1m]) * 100) ) >80
+        for: 1m
+        labels:
+          severity: page
+        annotations:
+          summary: High CPU Usage
