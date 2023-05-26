@@ -8,8 +8,7 @@ groups:
           severity: page
         annotations:
           summary: High CPU Usage
-  - name: ec2-nodes
-    rules:
+
       - alert: HighMemoryUtilization
         expr: 100 - (100 * ((node_memory_MemFree_bytes + node_memory_Cached_bytes + node_memory_Buffers_bytes) / node_memory_MemTotal_bytes)) >50
         for: 1m
