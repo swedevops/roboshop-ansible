@@ -11,3 +11,5 @@ SyslogIdentifier=shipping
 [Install]
 WantedBy=multi-user.target
 
+#ExecStart=/bin/java -jar -XX:InitialRAMPercentage=80 -XX:MaxRAMPercentage=85 /app/shipping.jar
+
